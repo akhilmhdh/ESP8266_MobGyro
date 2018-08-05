@@ -12,10 +12,10 @@ A project on esp8266 to controll a dc car using smart phone gyroscope. Using web
 ### esp.ino
 It contains the code to be flashed on to esp8266.
 Completes following tasks:
-    *Creates a webserver and sets up the esp
-    *Opens a websockets and provides a web page for smartphone controlling
-    *Handles the input data
-    *Sends it to arduino(i used arduino to control my car because as i was using esp8266-01 which has few pins)
+    - Creates a webserver and sets up the esp
+    - Opens a websockets and provides a web page for smartphone controlling
+    - Handles the input data
+    - Sends it to arduino(i used arduino to control my car because as i was using esp8266-01 which has few pins)
 ### esp-to-arduino.ino
 It receives the data and controls the motors depending on data received
 ### data
