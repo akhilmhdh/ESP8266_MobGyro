@@ -1,5 +1,6 @@
 //L293D
 //Motor A
+//a simple program to control the dc motors via uno
 const int motorPin1  = 5;  // Pin 14 of L293
 const int motorPin2  = 6;  // Pin 10 of L293
 //Motor B
