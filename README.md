@@ -2,12 +2,12 @@
 A project on esp8266 to controll a dc car using smart phone gyroscope. Using websockets,C library and advance features provided by esp8266
 # Getting Started
 ## Softwares
-  -Arduino IDE
+- Arduino IDE
 ## Hardwares
-    -ESP8266(mine was -01 version)
-    -usb-ttl
-    -arduino uno or any other versions
-    -A complete kit of dc car including motor driver,power supply etc
+- ESP8266(mine was -01 version)
+- Usb-ttl
+- Arduino uno or any other versions
+- A complete kit of dc car including motor driver,power supply etc
 ## Files
 ### esp.ino
 It contains the code to be flashed on to esp8266.
