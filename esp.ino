@@ -4,11 +4,13 @@
 #include <ESP8266WebServer.h>
 #include <FS.h>
 #include <WebSocketsServer.h>
+//Hello is my webserver name...optional
 ESP8266WebServer Hello(80);
 WebSocketsServer webSocket = WebSocketsServer(81);
 String getContentType(String filename);
 bool handleFileRead(String path);
 int t=1;
+//setting up a websocket
 void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length)
 {
   switch(type) {
@@ -23,6 +25,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
     case WStype_TEXT:
     {
     int val[2];
+      //below code is used to skip a few reading of gyro to esp as the rate of receiving is too fast and to make it more accurate. 
     if(t<=5){
       t=t+1;
       }
@@ -35,6 +38,7 @@ void webSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length
         i++;
         pch=strtok(NULL," ");
         }
+        //above to convert the websocket data to int
       t=1;
       i=0;
   if(val[0]<20 & val[0]>-20){
@@ -96,6 +100,7 @@ void setup() {
     Serial.flush();
     delay(1000);
 }
+  //SPIFFs file system management via data folder
   SPIFFS.begin();
    Hello.onNotFound([]() {                            
     if (!handleFileRead(Hello.uri()))                 
@@ -111,6 +116,7 @@ void loop() {
    webSocket.loop();
    Hello.handleClient();
 }
+//file system handling
 String getContentType(String filename) { // convert the file extension to the MIME type
   if (filename.endsWith(".html")) return "text/html";
   else if (filename.endsWith(".css")) return "text/css";
